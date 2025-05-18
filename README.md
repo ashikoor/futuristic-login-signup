@@ -36,14 +36,23 @@ Google Fonts: Orbitron and Roboto
 
 ## Setup
 Clone or Download the Repository:
+
 bash
+
 git clone https://github.com/ashikoor/futuristic-login-signup.git
+
 Or download the ZIP file and extract it.
+
 Navigate to the Project Directory:
+
 bash
+
 cd futuristic-login-signup
+
 Ensure Internet Connection: The project uses CDN links for Font Awesome and Google Fonts.
+
 Open the Project:
+
 Open index.html in a web browser (e.g., Chrome, Firefox) to view the page.
 
 
