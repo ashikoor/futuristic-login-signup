@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.particles span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  opacity: 0.2;
+  animation: float 20s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 960px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  overflow: hidden;
+  z-index: 2;
+  transition: 0.3s ease-in-out;
+}
+
+.panel {
+  flex: 1;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel.left {
+  background: linear-gradient(145deg, rgba(0, 255, 255, 0.15), rgba(255, 0, 255, 0.15));
+}
+
+.panel.right {
+  background: linear-gradient(145deg, rgba(255, 0, 255, 0.15), rgba(0, 255, 255, 0.15));
+}
+
+.panel h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form input {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.form button {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #00f0ff, #ff00d4);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.4s ease;
+  box-shadow: 0 0 12px #00f0ff, 0 0 20px #ff00d4;
+}
+
+.form button:hover {
+  transform: scale(1.05);
+}
+
+.social {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.social a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.social a:hover {
+  background: #fff;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .panel {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form input, .form button {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  .panel h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 26px;
+  background: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s;
+}
+#themeToggle:checked + .theme-toggle::before {
+  transform: translateX(24px);
+}
+body {
+  transition: background 0.5s, color 0.5s;
+}
+#themeToggle:checked ~ .container {
+  background: rgba(255, 255, 255, 0.15);
+}
+#themeToggle:checked ~ .container .panel.left,
+#themeToggle:checked ~ .container .panel.right {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(200, 200, 200, 0.1));
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Panel hover glow */
+.panel:hover {
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.3), 0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+/* Neon text on hover */
+.panel h2:hover {
+  text-shadow: 0 0 10px #fff, 0 0 20px #0ff, 0 0 30px #f0f;
+}
+
+/* Form input focus glow */
+.form input:focus {
+  box-shadow: 0 0 10px #0ff, 0 0 15px #f0f;
+}
+
+/* Button glowing pulse */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 8px #0ff, 0 0 16px #f0f;
+  }
+  50% {
+    box-shadow: 0 0 16px #0ff, 0 0 32px #f0f;
+  }
+  100% {
+    box-shadow: 0 0 8px #0ff, 0 0 16px #f0f;
+  }
+}
+.form button {
+  animation: pulse 2s infinite;
+}
+
+/* Enhanced particles */
+.particles span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0.3;
+  background: linear-gradient(45deg, #0ff, #f0f);
+  animation: float 20s linear infinite;
+}
+
+/* Extra responsive adjustments */
+@media (max-width: 480px) {
+  .social a {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}
